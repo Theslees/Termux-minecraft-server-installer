@@ -35,6 +35,6 @@ Anyways, enough talking, lets set this server up!
 
 `./one-time-install.sh`
 
-Enjoy, if u need to contact me in any way my discord is above~
+Enjoy, after finishing the setup and script, you should be able to run "mc" in your terminal to start the server anytime you want. if u need to contact me in any way,, my discord is above~
 
 ###### i am not responsible for batteries frying or anything that happens. You are doing this on your own will, and you are aware of the Risks that come with putting your phone through this.
