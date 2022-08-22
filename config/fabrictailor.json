@@ -1,0 +1,13 @@
+{
+  "// Whether to allow players to have capes. WARNING! This will toggle ALL capes!": "(default: true)",
+  "allow_capes": true,
+  "// Default skin for new players. Use command `/fabrictailor setDefaultSkin` to set those values.": "",
+  "default_skin": {
+    "// Whether to apply the default skin to ALL new players, not just those without skin.": "(default: false)",
+    "apply_to_all": false,
+    "value": "",
+    "signature": ""
+  },
+  "// How quickly can player change the skin, in seconds. -1 for no limit. If using this in server environment, -1 is not recommended.": "(default in singleplayer: -1, default for server: 60)",
+  "skin_change_timer": 8
+}
