@@ -1,5 +1,5 @@
 # termux-Optimized-MC-Java-server
-This is a simple script that will automatically install and configure a optimized vanilla-experience server for Minecraft Java Edition. Powered by the Quilt Mod Loader! 
+This is a simple script that will automatically install and configures a optimized vanilla-experience server for Minecraft Java Edition. Powered by the Quilt Mod Loader! 
 
 ## Thanks to these things/people that made it possible !
 > MC 1.19.2 - Synced server package manifest to client, updating the network framework Netty
