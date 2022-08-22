@@ -8,6 +8,7 @@ This is a simple script that will automatically install and configure a optimize
 
 > The Mods - Lithium, VMP *(Very Many Players)*, FerriteCore, Krypton, ViaFabric, Starlight, qfapi *(fabric library implementation from Quilt)*, Fabrictailor *(to change skins, do /skin)*, Clumps, C2ME.
 
+> Sukiru - they're like a java dev as a job or something idk, they were useful nontheless with answering questions.
 *Will update this repository accordingly if a new mc version comes out, and I will also update the mods time to time, but it's good that You also take this responsibility yourself. Feel free to open issues and whatnot too :)*
 # Steps to Install
 
