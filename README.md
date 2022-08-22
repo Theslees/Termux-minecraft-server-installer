@@ -14,10 +14,10 @@ This is a simple script that will automatically install and configure a optimize
 # Steps to Install
 
 ### ⚠️ This guide assumes you are runnning a Debian based operating system in termux. If not, you can download AnLinux which allows u to install a linux distro of your choosing to Termux. ⚠️
-This guide also assumes ur installation is __barebones__, right after installing a distro from AnLinux. To paint the image; AnLinux doesn't even install sudo, or setup any users for you besides root. This is fine if you don't value security. 
+This guide also assumes ur installation is __barebones__, right after installing a debian-based distro from AnLinux. To paint the image; AnLinux doesn't even install sudo, or setup any users for you besides root. This is fine if you don't value security. 
 If you need help with anything, my discord is below.
 
-> notice; This has not been tested with any other Linux Distros, so feedback is appriciated!! My discord is Theslees#1162. I want to make this script compatible with anything Linux, not only Termux. Though you're on you're own if your enviroment isn't exactly as I described.
+> notice; This has only been tested with Ubuntu, so feedback is appriciated!! My discord is Theslees#1162. I want to make this script compatible with anything Linux, not only Termux or Debian, so make a PR if you're smarter than me and can contribute^^^. Though you're on you're own if your enviroment isn't exactly as I described.
 
 Anyways, enough talking, lets set this server up!
 
