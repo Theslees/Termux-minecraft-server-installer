@@ -6,6 +6,8 @@ This is a simple script that will automatically install and configures a optimiz
 
 > Quilt Mod Loader - Best solution for hosting MC servers imo. (That isn't enterprise, proprietary and specifically designed for certain things.)
 
+> Quilt Mod Loader Discord - Very cool people and devs helped me find lib issues, ty.
+
 > The Mods - Lithium, VMP *(Very Many Players)*, FerriteCore, Krypton, ViaFabric, Starlight, qfapi *(fabric library implementation and Quilt library from Quilt)*, Fabrictailor *(to change skins, do /skin)*, Clumps, C2ME.
 
 > Sukiru - they're like a java dev as a job or something idk, they were useful nontheless with answering questions.
