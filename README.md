@@ -51,6 +51,7 @@ Alpine
 `cd mc`
 
 `chmod +x one-time-install.sh`
+
 As root;
 
 `./one-time-install.sh`
