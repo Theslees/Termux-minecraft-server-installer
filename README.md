@@ -61,3 +61,7 @@ Or sudo if you have that
 **After finishing the setup and script, you should be able to run "mc" in your terminal to start the server anytime you want. to connect to your server, you can go to your phone's Wifi Settings, and click on your connection to see more details about it. There you find your ip address, which u use to connect to your mc server. (should look something like 192.168.0.XX.) if u need to contact me in any way,, my discord is above, Enjoy~**
 
 ###### i am not responsible for batteries frying or anything that may happen. You are doing this on your own will, and you are aware of the Risks that come with putting your phone through this.
+
+# To do
+- Add Windows support
+- Geyser support
