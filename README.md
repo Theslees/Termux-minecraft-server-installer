@@ -65,3 +65,5 @@ Or sudo if you have that
 # To do
 - Add Windows support
 - Geyser support
+- More Distros
+- Use functions to shorten script
