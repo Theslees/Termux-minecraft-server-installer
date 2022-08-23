@@ -8,9 +8,25 @@ bashrc="~/.bashrc"
 ram=$(free --mega | grep Mem | awk '{ print $4 }')
 whereami=$(pwd)
 zero=0
+distro=$(cat /etc/os-release | grep '^ID=')
 # Download dependencies and requirements
 
-apt-get update && apt-get install openjdk-18-jre-headless && openjdk-18-jdk-headless && tar
+if [ $distro = ID=ubuntu ] ; then
+    apt-get update && apt-get install openjdk-18-jre-headless openjdk-18-jdk-headless tar
+if [ $distro = ID=arch ] ; then
+    pacman -Syy jre-openjdk-headless
+if [ $distro = ID=alpine ] ; then
+    apk update && apk add openjdk18-jre-headless
+if [ $distro = ID=debian ] ; then
+    apt update && dpkg --install openjdk-18-jre-headless
+if [ $distro = ID=fedora ] ; then
+    dnf install java-18-openjdk-headless
+if [ $distro = ID=manjaro ] ; then
+    pacman -Syy jre-openjdk-headless
+else
+    echo -n "Unsupported OS. File an issue at my Github with the name of your OS"
+    exit
+fi
 printf "Downloading MC Java server $version.. Powered by Quilt! Please Wait.."
 
 java -jar quilt-installer-$installer_version.jar \
@@ -20,7 +36,7 @@ echo "Done! Finalizing and creating alias.."
 # Cleanup
 
 cd server && mv libraries server.jar quilt-server-launch.jar .. && cd .. && rmdir server
-echo -n "You have $ram\Mb available!"
+echo -n "You have $ram\Mb available!\n"
 printf "How much ram do you want to allocate to your server(Mb)?\n (make sure to leave atleast 2gb for Android! Or maybe more if possible! If not, u may experience crashes.); "
 read option
 if [[ ! $option =~ ^[0-9]+$ ]] ; then
