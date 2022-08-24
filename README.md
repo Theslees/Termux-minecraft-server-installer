@@ -56,7 +56,7 @@ As root;
 
 `./one-time-install.sh`
 
-Or sudo if you have that
+Or sudo;
 
 `sudo ./one-time-install.sh`
 
