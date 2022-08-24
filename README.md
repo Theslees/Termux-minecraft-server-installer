@@ -52,13 +52,9 @@ Alpine
 
 `chmod +x one-time-install.sh`
 
-As root;
+*With or without root;*
 
 `./one-time-install.sh`
-
-Or sudo;
-
-`sudo ./one-time-install.sh`
 
 **After finishing the setup and script, you should be able to run "mc" in your terminal to start the server anytime you want. to connect to your server, you can go to your phone's Wifi Settings, and click on your connection to see more details about it. There you find your ip address, which u use to connect to your mc server. (should look something like 192.168.0.XX.) if u need to contact me in any way,, my discord is above, Enjoy~**
 
