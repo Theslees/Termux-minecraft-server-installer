@@ -64,4 +64,4 @@ Alpine
 - Add Windows support
 - Geyser support
 - More Distros
-- Use functions to shorten script
+- ~~Use functions to make it easier to read~~
