@@ -6,47 +6,29 @@ printf "\ncurrently running script as $USER\n "
 . /etc/os-release
 version="1.19.2"
 installer_version="0.4.3"
-bashrc="$HOME/.bashrc"
+#bashrc variable removed, not used
 ram=$(free --mega | grep Mem | awk '{ print $7 }')
 whereami=$(pwd)
-distro="$ID"
+#distroid removed, not needed
 mc="$HOME/.local/bin/mc"
 mc_root="/bin/mc"
 # Download dependencies and requirements
 
 installer() {
-if [ $distro = ubuntu ]; then
-    apt-get update && apt-get install openjdk-18-jre-headless openjdk-18-jdk-headless tar
-elif [ $distro = arch ] || [ $distro = manjaro ]; then
-    pacman -Syy jre-openjdk-headless
-elif [ $distro = alpine ]; then
-    apk update && apk add openjdk18-jre-headless
-elif [ $distro = debian ]; then
-    apt update && dpkg --install openjdk-18-jre-headless
-elif [ $distro = fedora ]; then
-    dnf install java-18-openjdk-headless
-elif [ $? =~ 0 ]; then
-    printf "Error. File an issue at my Github with the name of your OS. ($distro)"
-    return 1
-    exit
+if [ -x "$(command -v apk)" ];       then  apk add --no-cache openjdk18-jre-headless
+elif [ -x "$(command -v apt-get)" ]; then  apt-get install openjdk-18-jre-headless openjdk-18-jdk-headless tar
+elif [ -x "$(command -v dnf)" ];     then  dnf install java-18-openjdk-headless
+elif [ -x "$(command -v pacman)" ]; then pacman -S jre-openjdk-headless --needed
+else echo "FAILED TO INSTALL PACKAGE: Package manager not found. You must manually install: Java or check github"
 fi
 }
 
 installer_sudo() {
-if [ $distro = ubuntu ]; then
-    sudo apt-get update && sudo apt-get install openjdk-18-jre-headless openjdk-18-jdk-headless tar
-elif [ $distro = arch ] || [ $distro = manjaro ]; then
-    sudo pacman -Syy jre-openjdk-headless
-elif [ $distro = alpine ]; then
-    sudo apk update && sudo apk add openjdk18-jre-headless
-elif [ $distro = debian ]; then
-    sudo apt update && sudo dpkg --install openjdk-18-jre-headless
-elif [ $distro = fedora ]; then
-    sudo dnf install java-18-openjdk-headless
-elif [ $? =~ 0 ]; then
-    printf "Error. File an issue at my Github with the name of your OS. ($distro)"
-    return 1
-    exit
+if [ -x "$(command -v apk)" ];       then  sudo apk add --no-cache openjdk18-jre-headless
+elif [ -x "$(command -v apt-get)" ];  then  sudo apt-get install openjdk-18-jre-headless openjdk-18-jdk-headless tar
+elif [ -x "$(command -v dnf)" ];     then  sudo dnf install java-18-openjdk-headless
+elif [ -x "$(command -v pacman)" ]; then sudo pacman -S jre-openjdk-headless --needed
+else echo "FAILED TO INSTALL PACKAGE: Package manager not found. You must manually install: Java or check github"
 fi
 }
 
