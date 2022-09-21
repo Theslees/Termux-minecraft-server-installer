@@ -44,9 +44,7 @@ Alpine
 `apk add git`
 
 ## Cmds (run in order, do this to update your server whenever I make a new update.)
-`git clone https://github.com/Theslees/termux-Optimized-MC-Java-server`
-
-`mv termux-Optimized-MC-Java-server mc`
+`git clone https://github.com/Theslees/termux-Optimized-MC-Java-server mc`
 
 `cd mc`
 
@@ -64,4 +62,4 @@ Alpine
 - Add Windows support
 - Geyser support
 - More Distros
-- ~~Use functions to make it easier to read~~
+- ~~Use functions to make it easier to read ig~~
