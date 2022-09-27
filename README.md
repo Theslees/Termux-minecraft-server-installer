@@ -61,5 +61,5 @@ Alpine
 # To do
 - Add Windows support
 - Geyser support
-- More Distros
+- ~~More Distros~~
 - ~~Use functions to make it easier to read ig~~
