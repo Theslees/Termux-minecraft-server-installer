@@ -1,7 +1,9 @@
 #!/bin/bash
+
 # Works with superuser and normal user. finally. https://github.com/Theslees/termux-Optimized-MC-Java-server
+clear
 printf "Setting up..."
-printf "\ncurrently running script as $USER\n "
+printf "\ncurrently running script as $USER...\n "
 . /etc/os-release
 
 version="1.19.2"
@@ -39,6 +41,7 @@ if [ $(id -u) -eq 0 ]; then
 else
     installer_sudo
 fi
+clear
 echo "Done! Finalizing and creating shell script.."
 
 # Runs the quilt server installer
@@ -47,7 +50,6 @@ printf "\nDownloading MC Java server $version.. Powered by Quilt! Please Wait.."
 java -jar quilt-installer-$installer_version.jar \
     install server $version \
     --download-server
-clear
 # Cleanup
 cd server && cp -r libraries server.jar quilt-server-launch.jar .. && cd .. && rm -R server LICENSE README.md
 }
@@ -55,7 +57,7 @@ quilt
 
 mc() {
 echo -e "\nYou have *$ram* Mb available!"
-echo -e " \nHow much ram do you want to allocate to your server? (Mb) \n(leave atleast 2000Mb or more for Android. u may experience crashes otherwise.)"
+echo -e " \nHow much ram do you want to allocate to your server? (Mb) \n(leave atleast 2000Mb or more for your operating system. u may experience crashes otherwise.)"
 read -p $"Mb: " option
 if [[ ! $option =~ ^[0-9]+$ ]]; then
     echo -e "\nPlease enter a number only."
@@ -70,7 +72,7 @@ fi
 
 mc_root() {
 echo -e "\nYou have *$ram* Mb available!"
-echo -e " \nHow much memory do you want to allocate to your server? (Mb) \n(leave atleast 2000Mb or more for Android. u may experience crashes otherwise.)"
+echo -e " \nHow much memory do you want to allocate to your server? (Mb) \n(leave atleast 2000Mb or more for operating system. u may experience crashes otherwise.)"
 read -p $"Mb: " option
 if [[ ! $option =~ ^[0-9]+$ ]]; then
     echo -e "\nPlease enter a number only."
