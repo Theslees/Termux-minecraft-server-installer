@@ -16,11 +16,12 @@ mc="$HOME/.local/bin/mc"
 mc_root="/bin/mc"
 
 # Download dependencies and requirements
+# If Termux's repositories has java 18, then it'll be implemented here to remove the need of AnLinux, so you can run the script in native Termux!
 installer() {
 if [ -x "$(command -v apk)" ];       then  apk add --no-cache openjdk18-jre-headless nano grep procps
 elif [ -x "$(command -v apt-get)" ]; then  apt-get install openjdk-18-jre-headless nano grep procps
 elif [ -x "$(command -v apt)" ];  then  sudo apt install openjdk-18-jre-headless nano grep procps
-elif [ -x "$(command -v dnf)" ];     then  dnf install java-18-openjdk-headless nano grep procps
+elif [ -x "$(command -v dnf)" ];     then  dnf install java-18-openjdk-headless nano grep procps-ng
 elif [ -x "$(command -v pacman)" ]; then pacman -S jre-openjdk-headless nano grep procps --needed
 else echo "FAILED TO INSTALL PACKAGE: Package manager not found. You must manually install: Java or check github"
 fi
@@ -30,7 +31,7 @@ installer_sudo() {
 if [ -x "$(command -v apk)" ];       then  sudo apk add --no-cache openjdk18-jre-headless nano grep procps
 elif [ -x "$(command -v apt-get)" ];  then  sudo apt-get install openjdk-18-jre-headless nano grep procps
 elif [ -x "$(command -v apt)" ];  then  sudo apt install openjdk-18-jre-headless nano grep procps
-elif [ -x "$(command -v dnf)" ];     then  sudo dnf install java-18-openjdk-headless nano grep procps
+elif [ -x "$(command -v dnf)" ];     then  sudo dnf install java-18-openjdk-headless nano grep procps-ng
 elif [ -x "$(command -v pacman)" ]; then sudo pacman -S jre-openjdk-headless nano grep procps --needed
 else echo "FAILED TO INSTALL PACKAGE: Package manager not found. You must manually install: Java or check github"
 fi
@@ -72,7 +73,7 @@ fi
 
 mc_root() {
 echo -e "\nYou have *$ram* Mb available!"
-echo -e " \nHow much memory do you want to allocate to your server? (Mb) \n(leave atleast 2000Mb or more for operating system. u may experience crashes otherwise.)"
+echo -e " \nHow much memory do you want to allocate to your server? (Mb) \n(leave atleast 2000Mb or more for your operating system. u may experience crashes otherwise.)"
 read -p $"Mb: " option
 if [[ ! $option =~ ^[0-9]+$ ]]; then
     echo -e "\nPlease enter a number only."
