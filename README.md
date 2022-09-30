@@ -15,9 +15,9 @@ This is a simple script that will automatically install and configures an extrem
 # Steps to Install
 
 ### ⚠️ This guide assumes you are runnning a supported operating system in termux. If not, you can download AnLinux to install a supported distro. ⚠️
-*p.s As long as you are on a supported operating system, this script should work, even if you're not on Termux. I Will update this repository accordingly if a new mc version comes out, and I will also update the mods and things from time to time. Ofcourse you can do this yourself, and I would reccomend to aswell, but you wont die if you dont so don't sweat.*
+As long as you are on a supported operating system, this script should work. even if you're not using Termux. I will update this repository accordingly if a new mc version comes out or something.
 
-**Currently supported distros; Fedora, Debian, Ubuntu, Arch Linux, Manjaro, Alpine Linux, and anything else that has the package manager found in these core distros.**
+### Currently supported distros; Fedora, Debian, Ubuntu, Arch Linux, Manjaro, Alpine Linux, and anything else that has the same package manager as these distros.
 
 Anyways, enough talking, lets set this server up!
 
@@ -37,7 +37,7 @@ Fedora
 Alpine
 
 `apk add git`
----------------------------------------------------------------------------------------------------------------------------------------
+
 
 ## Install (run in order, do this to update your server whenever I make a new update.)
 `git clone https://github.com/Theslees/termux-Optimized-MC-Java-server mc && cd mc`
