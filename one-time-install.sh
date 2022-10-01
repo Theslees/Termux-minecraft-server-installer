@@ -17,6 +17,7 @@ mc_root="/bin/mc"
 
 # Download dependencies and requirements
 # If Termux's repositories has java 18, then it'll be implemented here to remove the need of AnLinux, so you can run the script in native Termux!
+# !bug! if openjdk is not in your repositories for some reason, it will not error despite not installing properly.
 installer() {
 if [ -x "$(command -v apk)" ];       then  apk add --no-cache openjdk18-jre-headless nano grep procps
 elif [ -x "$(command -v apt-get)" ]; then  apt-get install openjdk-18-jre-headless nano grep procps
@@ -92,5 +93,4 @@ else
 fi
 
 printf "That should be it! \nrun \"mc\" in your terminal to start the mc server anytime. \nIf anything is wrong please open an Issue in github, or DM me on Discord. \n~ https://github.com/Theslees/termux-Optimized-MC-Java-server ~ || ~ Theslees\#1162 ~\n "
-return 0
 exit
