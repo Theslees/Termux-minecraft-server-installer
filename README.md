@@ -22,7 +22,7 @@ As long as you are on a supported operating system, this script should work, eve
 
 If you need help with anything, my discord is below.
 
-> notice; This has only been tested with Ubuntu, so feedback is appriciated!! My discord is Theslees#1162. I want to make this script compatible with anything Linux. so make a PR if you're smarter than me and can contribute^^^. Though you're on you're own if your enviroment isn't exactly as I described.
+> ps; Feedback is appriciated!! My discord is Theslees#1162. I want to make this script compatible with anything Linux. so make a PR if you're smarter than me and can contribute^^^. Though you're on you're own if your enviroment isn't exactly as I described.
 
 Anyways, enough talking, lets set this server up!
 
