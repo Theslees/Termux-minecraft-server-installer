@@ -16,38 +16,107 @@ mc="$HOME/.local/bin/mc"
 mc_root="/bin/mc"
 
 # Download dependencies and requirements
-# If Termux's repositories has java 18, then it'll be implemented here to remove the need of AnLinux, so you can run the script in native Termux!
-# !bug! if openjdk is not in your repositories for some reason, it will not error despite not installing properly.
+# !Implementing...!termux does not have openjdk18 but does have openjdk17, which is what will be used if native Termux support is implemented.
+# !fixed! if openjdk is not in your repositories for some reason, it will not error despite not installing properly.
 installer() {
-if [ -x "$(command -v apk)" ];       then  apk add --no-cache openjdk18-jre-headless nano grep procps
-elif [ -x "$(command -v apt-get)" ]; then  apt-get install openjdk-18-jre-headless nano grep procps
-elif [ -x "$(command -v apt)" ];  then  sudo apt install openjdk-18-jre-headless nano grep procps
-elif [ -x "$(command -v dnf)" ];     then  dnf install java-18-openjdk-headless nano grep procps-ng
-elif [ -x "$(command -v pacman)" ]; then pacman -S jre-openjdk-headless nano grep procps --needed
-else echo "FAILED TO INSTALL PACKAGE: Package manager not found. You must manually install: Java or check github"
+if [ -x "$(command -v apk)" ]; then
+  pkgfnd=1
+    apk add --no-cache openjdk18-jre-headless nano grep procps
+elif [ -x "$(command -v apt-get)" ]; then
+  pkgfnd=2
+    apt-get update && apt-get install openjdk-18-jre-headless nano grep procps
+elif [ -x "$(command -v apt)" ]; then
+  pkgfnd=3
+    apt update && apt install openjdk-18-jre-headless nano grep procps
+elif [ -x "$(command -v dnf)" ]; then
+  pkgfnd=4
+    dnf install java-18-openjdk-headless nano grep procps-ng
+elif [ -x "$(command -v pacman)" ]; then
+  pkgfnd=5
+    pacman -Syy jre-openjdk-headless nano grep procps --needed
+else
+  echo -n "PACKAGE MANAGER NOT FOUND; You must manually install Java 17 or higher, or Check github for supported distros. Maybe open an issue to suggest support for your distro."
+  exit
+fi
+
+if [ $? = 1 ]; then
+  pkgfail=0
+else
+  pkgfail=1
+fi
+
+if [ $pkgfnd = 1 ]; then pkgfnd="apk add --no-cache openjdk17-jre-headless nano grep procps"
+elif [ $pkgfnd = 2 ]; then pkgfnd="apt-get update && apt-get install openjdk-17-jre-headless nano grep procps"
+elif [ $pkgfnd = 3 ]; then pkgfnd="apt update && apt install openjdk-17-jre-headless nano grep procps"
+elif [ $pkgfnd = 4 ]; then pkgfnd="dnf install java-17-openjdk-headless nano grep procps-ng"
+elif [ $pkgfnd = 5 ]; then pkgfnd="pacman -Syy jre17-openjdk-headless nano grep procps --needed"
+fi
+
+if [ $pkgfail = 0 ]; then
+  echo -n "FAILED TO INSTALL PACKAGES; Attempting to download Java 17 instead of 18..."
+  $pkgfnd
+else
+  echo -n "Success!"
+fi
+if [ $? = 1 ]; then echo -n "FAILED TO INSTALL PACKAGES; Java 17 installation failed, or required packages could not be sync and installed. Please check github for more support."
 fi
 }
 
 installer_sudo() {
-if [ -x "$(command -v apk)" ];       then  sudo apk add --no-cache openjdk18-jre-headless nano grep procps
-elif [ -x "$(command -v apt-get)" ];  then  sudo apt-get install openjdk-18-jre-headless nano grep procps
-elif [ -x "$(command -v apt)" ];  then  sudo apt install openjdk-18-jre-headless nano grep procps
-elif [ -x "$(command -v dnf)" ];     then  sudo dnf install java-18-openjdk-headless nano grep procps-ng
-elif [ -x "$(command -v pacman)" ]; then sudo pacman -S jre-openjdk-headless nano grep procps --needed
-else echo "FAILED TO INSTALL PACKAGE: Package manager not found. You must manually install: Java or check github"
+if [ -x "$(command -v apk)" ]; then
+  pkgfnd=1
+  sudo apk add --no-cache openjdk18-jre-headless nano grep procps
+elif [ -x "$(command -v apt-get)" ]; then
+  pkgfnd=2
+  sudo apt-get update && sudo apt-get install openjdk-18-jre-headless nano grep procps
+elif [ -x "$(command -v apt)" ]; then
+  pkgfnd=3
+  sudo apt update && sudo apt install openjdk-18-jre-headless nano grep procps
+elif [ -x "$(command -v dnf)" ]; then
+  pkgfnd=4
+  sudo dnf install java-18-openjdk-headless nano grep procps-ng
+elif [ -x "$(command -v pacman)" ]; then
+  pkgfnd=5
+  sudo pacman -Syy jre-openjdk-headless nano grep procps --needed
+else
+  echo -n "PACKAGE MANAGER NOT FOUND; You must manually install Java 17 or higher, or Check github for supported distros. Maybe open an issue to suggest support for your distro."
+  exit
+fi
+
+if [ $? = 1 ]; then
+  pkgfail=0
+else
+  pkgfail=1
+fi
+
+if [ $pkgfnd = 1 ]; then pkgfnd="sudo apk add --no-cache openjdk17-jre-headless nano grep procps"
+elif [ $pkgfnd = 2 ]; then pkgfnd="sudo apt-get update && sudo apt-get install openjdk-17-jre-headless nano grep procps"
+elif [ $pkgfnd = 3 ]; then pkgfnd="sudo apt update && sudo apt install openjdk-17-jre-headless nano grep procps"
+elif [ $pkgfnd = 4 ]; then pkgfnd="sudo dnf install java-17-openjdk-headless nano grep procps-ng"
+elif [ $pkgfnd = 5 ]; then pkgfnd="sudo pacman -Syy jre17-openjdk-headless nano grep procps --needed"
+fi
+
+if [ $pkgfail = 0 ]; then
+  echo -n "FAILED TO INSTALL PACKAGES; Attempting to download Java 17 instead of 18..."
+  $pkgfnd
+else
+  echo -n "Success!"
+fi
+
+if [ $? = 1 ]; then echo -n "FAILED TO INSTALL PACKAGES; Java 17 installation failed, or required packages could not be sync and installed. Please check github for more support."
 fi
 }
+
 # Detects if you're signed in as root
 if [ $(id -u) -eq 0 ]; then
     installer
 else
     installer_sudo
 fi
-clear
-echo "Done! Finalizing and creating shell script.."
 
 # Runs the quilt server installer
 quilt() {
+clear
 printf "\nDownloading MC Java server $version.. Powered by Quilt! Please Wait.."
 java -jar quilt-installer-$installer_version.jar \
     install server $version \
@@ -55,9 +124,11 @@ java -jar quilt-installer-$installer_version.jar \
 # Cleanup
 cd server && cp -r libraries server.jar quilt-server-launch.jar .. && cd .. && rm -R server LICENSE README.md
 }
+
 quilt
 
 mc() {
+clear
 echo -e "\nYou have *$ram* Mb available!"
 echo -e " \nHow much ram do you want to allocate to your server? (Mb) \n(leave atleast 2000Mb or more for your operating system. u may experience crashes otherwise.)"
 read -p $"Mb: " option
@@ -73,6 +144,7 @@ fi
 }
 
 mc_root() {
+clear
 echo -e "\nYou have *$ram* Mb available!"
 echo -e " \nHow much memory do you want to allocate to your server? (Mb) \n(leave atleast 2000Mb or more for your operating system. u may experience crashes otherwise.)"
 read -p $"Mb: " option
