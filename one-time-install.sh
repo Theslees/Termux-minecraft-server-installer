@@ -21,7 +21,7 @@ mc_root="/bin/mc"
 installer() {
 if [ -x "$(command -v apk)" ]; then
   pkgfnd=1
-    apk add --no-cache openjdk18-jre-headless nano grep procps
+    apk update && apk add --no-cache openjdk18-jre-headless nano grep procps
 elif [ -x "$(command -v apt-get)" ]; then
   pkgfnd=2
     apt-get update && apt-get install openjdk-18-jre-headless nano grep procps
@@ -30,7 +30,7 @@ elif [ -x "$(command -v apt)" ]; then
     apt update && apt install openjdk-18-jre-headless nano grep procps
 elif [ -x "$(command -v dnf)" ]; then
   pkgfnd=4
-    dnf install java-18-openjdk-headless nano grep procps-ng
+    dnf upgrade && dnf install java-18-openjdk-headless nano grep procps-ng
 elif [ -x "$(command -v pacman)" ]; then
   pkgfnd=5
     pacman -Syy jre-openjdk-headless nano grep procps --needed
@@ -45,10 +45,10 @@ else
   pkgfail=1
 fi
 
-if [ $pkgfnd = 1 ]; then pkgfnd="apk add --no-cache openjdk17-jre-headless nano grep procps"
+if [ $pkgfnd = 1 ]; then pkgfnd="apk update && apk add --no-cache openjdk17-jre-headless nano grep procps"
 elif [ $pkgfnd = 2 ]; then pkgfnd="apt-get update && apt-get install openjdk-17-jre-headless nano grep procps"
 elif [ $pkgfnd = 3 ]; then pkgfnd="apt update && apt install openjdk-17-jre-headless nano grep procps"
-elif [ $pkgfnd = 4 ]; then pkgfnd="dnf install java-17-openjdk-headless nano grep procps-ng"
+elif [ $pkgfnd = 4 ]; then pkgfnd="dnf upgrade && dnf install java-17-openjdk-headless nano grep procps-ng"
 elif [ $pkgfnd = 5 ]; then pkgfnd="pacman -Syy jre17-openjdk-headless nano grep procps --needed"
 fi
 
@@ -65,7 +65,7 @@ fi
 installer_sudo() {
 if [ -x "$(command -v apk)" ]; then
   pkgfnd=1
-  sudo apk add --no-cache openjdk18-jre-headless nano grep procps
+  sudo apk update && sudo apk add --no-cache openjdk18-jre-headless nano grep procps
 elif [ -x "$(command -v apt-get)" ]; then
   pkgfnd=2
   sudo apt-get update && sudo apt-get install openjdk-18-jre-headless nano grep procps
@@ -74,7 +74,7 @@ elif [ -x "$(command -v apt)" ]; then
   sudo apt update && sudo apt install openjdk-18-jre-headless nano grep procps
 elif [ -x "$(command -v dnf)" ]; then
   pkgfnd=4
-  sudo dnf install java-18-openjdk-headless nano grep procps-ng
+  sudo dnf upgrade && sudo dnf install java-18-openjdk-headless nano grep procps-ng
 elif [ -x "$(command -v pacman)" ]; then
   pkgfnd=5
   sudo pacman -Syy jre-openjdk-headless nano grep procps --needed
@@ -89,10 +89,10 @@ else
   pkgfail=1
 fi
 
-if [ $pkgfnd = 1 ]; then pkgfnd="sudo apk add --no-cache openjdk17-jre-headless nano grep procps"
+if [ $pkgfnd = 1 ]; then pkgfnd="sudo apk update && sudo apk add --no-cache openjdk17-jre-headless nano grep procps"
 elif [ $pkgfnd = 2 ]; then pkgfnd="sudo apt-get update && sudo apt-get install openjdk-17-jre-headless nano grep procps"
 elif [ $pkgfnd = 3 ]; then pkgfnd="sudo apt update && sudo apt install openjdk-17-jre-headless nano grep procps"
-elif [ $pkgfnd = 4 ]; then pkgfnd="sudo dnf install java-17-openjdk-headless nano grep procps-ng"
+elif [ $pkgfnd = 4 ]; then pkgfnd="sudo dnf upgrade && sudo dnf install java-17-openjdk-headless nano grep procps-ng"
 elif [ $pkgfnd = 5 ]; then pkgfnd="sudo pacman -Syy jre17-openjdk-headless nano grep procps --needed"
 fi
 
