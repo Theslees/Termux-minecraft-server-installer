@@ -23,23 +23,23 @@ Please check if your system is compatible with this script before trying it, I w
 ## Setup (linux)
 Debian-based
 
-`apt install git`
+`apt update && apt install git`
 
 Arch-based
 
-`pacman -S git`
+`pacman -Syy git`
 
 Fedora
 
-`dnf install git`
+`dnf upgrade && dnf install git`
 
 Alpine
 
-`apk add git`
+`apk update && apk add git`
 
 Termux
 
-`apt install git`
+`apt update && apt install git`
 
 ## Install (linux) (run this to update your server whenever I make a new update.)
 
