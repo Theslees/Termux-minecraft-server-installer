@@ -53,7 +53,6 @@ Termux
 
 `./one-time-install.sh`
 
------------------------------------------------
 ## Update
 
 *Update your server, run with your terminal open in the server instance's folder.*
