@@ -1,6 +1,7 @@
 # termux-Optimized-MC-Java-server
 This is a simple script that will automatically install and configures an extremely optimized vanilla-experience server for Minecraft Java Edition, Powered by the Quilt Mod Loader! This is the best script to automatically get the most optimized MC Server out there as far as I know. You can add any Fabric or Quilt mod you want. Termux supported.
 
+----------------------------------------------------------------------
 ## Thanks to these things/people that made it possible !
 > MC v1.19.2 - Synced server package manifest to client, updating the framework Netty
 
@@ -20,6 +21,7 @@ Please check if your system is compatible with this script before trying it, I w
 
 ### ***Currently supported os; Windows 10.0=<, Fedora-based, Debian-based, Arch Linux-based, Alpine-based, and Termux***
 
+-----------------------------------------------------------------
 ## Setup (linux)
 Debian-based
 
@@ -50,6 +52,13 @@ Termux
 *Execute With or Without root, up to preference;*
 
 `./one-time-install.sh`
+
+-----------------------------------------------
+## Update
+
+*Update your server, run with your terminal open in the server instance's folder.*
+
+`git fetch` 
 
 ---------------------------------------------------------------------------------------------------------------------------------------
 **Conclusion; After finishing the setup and script, you should be able to run "mc" in your terminal to start the server anytime you want. to connect to your server. (TERMUX USERS; you can go to your phone's Wifi Settings, and click on your connection to see more details about it. There you find your ip address, which u use to connect to your mc server. should look something like 192.168.0.XX.)**
