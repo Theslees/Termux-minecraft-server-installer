@@ -1,6 +1,8 @@
 # termux-Optimized-MC-Java-server
 This is a simple script that will automatically install and configure an extremely optimized vanilla-experience server for Minecraft Java Edition, Powered by the Quilt Mod Loader! This is the best script to automatically get the most optimized MC Server out there as far as I know. You can add any Fabric or Quilt mod you want. Termux supported.
 
+**I have an example of this running on my own android device; a Modded Survival experience. You can see it's performance by joining; `androidmc.tplinkdns.com`!**
+
 ----------------------------------------------------------------------
 ## Thanks to these things/people that made it possible !
 > MC v1.19.2 - Synced server package manifest to client, updating the framework Netty
