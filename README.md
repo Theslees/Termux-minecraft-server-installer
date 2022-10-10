@@ -25,8 +25,6 @@ Please check if your system is compatible with this script before running it;
 
 ### ***Currently supported os; Fedora-based, Debian-based, Arch Linux-based, Alpine-based, Termux.***
 
------------------------------------------------------------------
-
 # To do
 - Add Windows support
 - Geyser support
