@@ -18,11 +18,11 @@ termux=$(/data/data/com.termux/files/usr)
 
 # - finished! termux does not have openjdk18 but does have openjdk17, which is what will be used if native Termux support is implemented. (poorly implemented but it works)
 # - fixed! if openjdk18 is not in your repositories for some reason, it will not error despite not installing properly. fallback to openjdk17, the other supported java version- besides 19, which is most likely not in your repositories as of now.
-
+# - issue! if you're running this on termux, it'll go through the normal installer despite already knowing that they wont work. Not a bug but Termux users will have to wait longer to finish the script.
 if [ -x $termux  ]; then
   echo -n "Detected Termux enviroment, continuing setup..\n " && apt install openjdk-17 grep procps
-elif [ $(id -u) != 0 ]; then
-  echo -n "Detected Termux enviroment, continuing setup..\n " && sudo apt install openjdk-17 grep procps
+elif [ $? != 0 ]; then
+  sudo apt install openjdk-17 grep procps
 else
     return 0
 fi
