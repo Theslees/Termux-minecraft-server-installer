@@ -2,10 +2,10 @@
 
 # Works with superuser and normal user. finally. https://github.com/Theslees/termux-Optimized-MC-Java-server
 clear
-printf "Setting up..."
-printf "\ncurrently running script as $USER...\n "
-. /etc/os-release
+printf "Setting up...\n "
+printf "currently running script as $USER...\n "
 
+. /etc/os-release
 version="1.19.2"
 installer_version="0.4.4"
 #bashrc variable removed, not used
@@ -14,11 +14,21 @@ whereami=$(pwd)
 #distroid removed, not needed
 mc="$HOME/.local/bin/mc"
 mc_root="/bin/mc"
+termux=$(/data/data/com.termux/files/usr)
 
-# Download dependencies and requirements
-# !Implementing...!termux does not have openjdk18 but does have openjdk17, which is what will be used if native Termux support is implemented.
-# !fixed! if openjdk is not in your repositories for some reason, it will not error despite not installing properly.
+# - finished! termux does not have openjdk18 but does have openjdk17, which is what will be used if native Termux support is implemented. (poorly implemented but it works)
+# - fixed! if openjdk18 is not in your repositories for some reason, it will not error despite not installing properly. fallback to openjdk17, the other supported java version- besides 19, which is most likely not in your repositories as of now.
+
+if [ -x $termux  ]; then
+  echo -n "Detected Termux enviroment, continuing setup..\n " && apt install openjdk-17 grep procps
+elif [ $(id -u) != 0 ]; then
+  echo -n "Detected Termux enviroment, continuing setup..\n " && sudo apt install openjdk-17 grep procps
+else
+    return 0
+fi
+
 installer() {
+# Download dependencies and requirements
 if [ -x "$(command -v apk)" ]; then
   pkgfnd=1
     apk update && apk add --no-cache openjdk18-jre-headless nano grep procps
@@ -35,16 +45,17 @@ elif [ -x "$(command -v pacman)" ]; then
   pkgfnd=5
     pacman -Syy jre-openjdk-headless nano grep procps --needed
 else
-  echo -n "PACKAGE MANAGER NOT FOUND; You must manually install Java 17 or higher, or Check github for supported distros. Maybe open an issue to suggest support for your distro."
+  echo -n "PACKAGE MANAGER NOT FOUND; You must manually install Java 17 or higher. \nMaybe open an issue on Github to suggest support for your distro.\n "
   exit
 fi
 
 if [ $? = 1 ]; then
-  pkgfail=0
+  pkgfail=true
 else
-  pkgfail=1
+  pkgfail=false
 fi
 
+# Uses $pkgfnd (package find) to know what package manager you're using inorder to downgrade java version if needed
 if [ $pkgfnd = 1 ]; then pkgfnd="apk update && apk add --no-cache openjdk17-jre-headless nano grep procps"
 elif [ $pkgfnd = 2 ]; then pkgfnd="apt-get update && apt-get install openjdk-17-jre-headless nano grep procps"
 elif [ $pkgfnd = 3 ]; then pkgfnd="apt update && apt install openjdk-17-jre-headless nano grep procps"
@@ -52,13 +63,16 @@ elif [ $pkgfnd = 4 ]; then pkgfnd="dnf upgrade && dnf install java-17-openjdk-he
 elif [ $pkgfnd = 5 ]; then pkgfnd="pacman -Syy jre17-openjdk-headless nano grep procps --needed"
 fi
 
-if [ $pkgfail = 0 ]; then
-  echo -n "FAILED TO INSTALL PACKAGES; Attempting to download Java 17 instead of 18..."
+if [ $pkgfail = true ]; then
+  echo -n "FAILED TO INSTALL PACKAGES; Attempting to download Java 17 instead of 18...\n "
   $pkgfnd
 else
   echo -n "Success!"
+  return 0
 fi
-if [ $? = 1 ]; then echo -n "FAILED TO INSTALL PACKAGES; Java 17 installation failed, or required packages could not be sync and installed. Please check github for more support."
+if [ $? = 1 ]; then
+  echo -n "FAILED TO INSTALL PACKAGES; Java 17 installation failed, or required packages could not be sync and installed. \nPlease check github for more support.\n "
+  return 1
 fi
 }
 
@@ -79,14 +93,14 @@ elif [ -x "$(command -v pacman)" ]; then
   pkgfnd=5
   sudo pacman -Syy jre-openjdk-headless nano grep procps --needed
 else
-  echo -n "PACKAGE MANAGER NOT FOUND; You must manually install Java 17 or higher, or Check github for supported distros. Maybe open an issue to suggest support for your distro."
+  echo -n "PACKAGE MANAGER NOT FOUND; You must manually install Java 17 or higher. \nMaybe open an issue on Github to suggest support for your distro.\n "
   exit
 fi
 
 if [ $? = 1 ]; then
-  pkgfail=0
+  pkgfail=true
 else
-  pkgfail=1
+  pkgfail=false
 fi
 
 if [ $pkgfnd = 1 ]; then pkgfnd="sudo apk update && sudo apk add --no-cache openjdk17-jre-headless nano grep procps"
@@ -96,25 +110,26 @@ elif [ $pkgfnd = 4 ]; then pkgfnd="sudo dnf upgrade && sudo dnf install java-17-
 elif [ $pkgfnd = 5 ]; then pkgfnd="sudo pacman -Syy jre17-openjdk-headless nano grep procps --needed"
 fi
 
-if [ $pkgfail = 0 ]; then
+if [ $pkgfail = true ]; then
   echo -n "FAILED TO INSTALL PACKAGES; Attempting to download Java 17 instead of 18..."
   $pkgfnd
 else
   echo -n "Success!"
+  return 0
 fi
 
-if [ $? = 1 ]; then echo -n "FAILED TO INSTALL PACKAGES; Java 17 installation failed, or required packages could not be sync and installed. Please check github for more support."
+if [ $? = 1 ]; then echo -n "FAILED TO INSTALL PACKAGES; Java 17 installation failed, or required packages could not be sync and installed. \nPlease check github for more support.\n "
 fi
 }
 
-# Detects if you're signed in as root
+# Detects if you're root
 if [ $(id -u) -eq 0 ]; then
     installer
 else
     installer_sudo
 fi
 
-# Runs the quilt server installer
+# The quilt server instance installer
 quilt() {
 clear
 printf "\nDownloading MC Java server $version.. Powered by Quilt! Please Wait.."
