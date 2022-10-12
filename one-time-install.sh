@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Works with superuser and normal user. finally. https://github.com/Theslees/termux-Optimized-MC-Java-server
+# Works with superuser and normal user. finally. https://github.com/Theslees/Termux-minecraft-server-installer
 clear
 printf "Setting up...\n "
 printf "currently running script as $USER...\n "
@@ -162,6 +162,11 @@ if [[ ! $option =~ ^[0-9]+$ ]]; then
     return 1
     break
 else
+    if [ $termux = true ]; then 
+      mc_root="/data/data/com.termux/files/usr/bin"
+    else 
+      return 0
+    fi
     clear
     option="${option}M"
     touch $mc && cat /dev/null > $mc && echo "#!/bin/bash
@@ -179,6 +184,11 @@ if [[ ! $option =~ ^[0-9]+$ ]]; then
     return 1
     break
 else
+    if [ $termux = true ]; then 
+      mc_root="/data/data/com.termux/files/usr/bin"
+    else 
+      return 0
+    fi
     clear
     option="${option}M"
     touch $mc_root && cat /dev/null > $mc_root && echo "#!/bin/bash
