@@ -14,21 +14,29 @@ whereami=$(pwd)
 #distroid removed, not needed
 mc="$HOME/.local/bin/mc"
 mc_root="/bin/mc"
-termux=$(/data/data/com.termux/files/usr)
+termux=/data/data/com.termux/files/usr
 
 # - finished! termux does not have openjdk18 but does have openjdk17, which is what will be used if native Termux support is implemented. (poorly implemented but it works)
 # - fixed! if openjdk18 is not in your repositories for some reason, it will not error despite not installing properly. fallback to openjdk17, the other supported java version- besides 19, which is most likely not in your repositories as of now.
-# - issue! if you're running this on termux, it'll go through the normal installer despite already knowing that they wont work. Not a bug but Termux users will have to wait longer to finish the script.
-if [ -x $termux  ]; then
-  echo -n "Detected Termux enviroment, continuing setup..\n " && apt install openjdk-17 grep procps
+# - fixed! if you're running this on termux, it'll go through the normal installer despite already knowing that they wont work. Not a bug but Termux users will have to wait longer to finish the script.
+if [ -x "$(command -v $termux)" ]; then
+  echo -n "Detected Termux enviroment, continuing setup..\n "
+  termux=true
+  apt install openjdk-17 grep procps
+  termux=true
 elif [ $? != 0 ]; then
   sudo apt install openjdk-17 grep procps
 else
     return 0
+    termux=false
 fi
 
 installer() {
 # Download dependencies and requirements
+if [ $termux = true ]; then break 2
+else return 0
+fi
+
 if [ -x "$(command -v apk)" ]; then
   pkgfnd=1
     apk update && apk add --no-cache openjdk18-jre-headless nano grep procps
@@ -77,6 +85,9 @@ fi
 }
 
 installer_sudo() {
+if [ $termux = true ]; then break 2
+else return 0
+fi
 if [ -x "$(command -v apk)" ]; then
   pkgfnd=1
   sudo apk update && sudo apk add --no-cache openjdk18-jre-headless nano grep procps
@@ -150,6 +161,7 @@ read -p $"Mb: " option
 if [[ ! $option =~ ^[0-9]+$ ]]; then
     echo -e "\nPlease enter a number only."
     return 1
+    break
 else
     clear
     option="${option}M"
@@ -166,6 +178,7 @@ read -p $"Mb: " option
 if [[ ! $option =~ ^[0-9]+$ ]]; then
     echo -e "\nPlease enter a number only."
     return 1
+    break
 else
     clear
     option="${option}M"
@@ -173,6 +186,7 @@ else
     cd $whereami && java -Xms$option -Xmx$option -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true -jar quilt-server-launch.jar nogui" >> $mc_root && chmod +x $mc_root
 fi
 }
+
 if [ $(id -u) -eq 0 ]; then
     mc_root
 else
