@@ -25,7 +25,6 @@ if [ -x "$(command -v $termux)" ]; then
   apt install openjdk-17 grep procps
 elif [ $? != 0 ]; then
   sudo apt install openjdk-17 grep procps
-  termux=true
 else
     return 0
     termux=false
