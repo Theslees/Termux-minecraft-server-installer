@@ -147,7 +147,7 @@ java -jar quilt-installer-$installer_version.jar \
     install server $version \
     --download-server
 # Cleanup
-cd server && cp -r libraries server.jar quilt-server-launch.jar .. && cd .. && rm -R server LICENSE README.md
+cd server && cp -r libraries server.jar quilt-server-launch.jar .. && cd .. && rm -R server LICENSE README.md quilt-installer-$installer_version.jar
 }
 
 quilt
