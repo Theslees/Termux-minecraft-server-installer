@@ -1,9 +1,11 @@
 # termux-Optimized-MC-Java-server
+#### **!INSTALLATION GUIDE IS IN THE WIKI SECTION OF THIS GITHUB!**
+
 This is a simple script (originally designed for Termux) that will automatically install and configure a vanilla-optimized Quilt server for Minecraft Java (and in the future hopefully, Bedrock.)
 This is the most __up-to-date__ script to setup the most optimized MC Server out there, afaik.
 You can add any Fabric or Quilt mod you want.
 
-### I have an example of this running on my own android device; a Modded Survival experience. You can take a peak of its performance by joining; `androidmc.tplinkdns.com` !!
+`I have an example of this running on my own android device; a Modded Survival experience. You can take a peak of its performance by joining; androidmc.tplinkdns.com` !!
 
 ----------------------------------------------------------------------
 ## Thanks to these things/people that made it possible !
