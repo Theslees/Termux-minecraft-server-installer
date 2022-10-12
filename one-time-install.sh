@@ -23,9 +23,9 @@ if [ -x "$(command -v $termux)" ]; then
   echo -n "Detected Termux enviroment, continuing setup..\n "
   termux=true
   apt install openjdk-17 grep procps
-  termux=true
 elif [ $? != 0 ]; then
   sudo apt install openjdk-17 grep procps
+  termux=true
 else
     return 0
     termux=false
