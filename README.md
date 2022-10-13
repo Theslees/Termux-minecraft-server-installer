@@ -15,7 +15,7 @@ You can add any Fabric or Quilt mod you want.
 
 > Quilt Mod Loader Discord - Very cool people and devs helped me find compalibility issues, ty.
 
-> The Mods - Lithium, VMP *(Very Many Players)*, FerriteCore, Krypton, ViaFabric, ViaBackwards, ViaRewind, Starlight, qfapi *(fabric library implementation and Quilt library from Quilt)*, Fabrictailor *(to change skins, do /skin)*, Clumps, C2ME.
+> The Mods - Lithium, VMP *(Very Many Players)*, FerriteCore, ViaFabric, ViaBackwards, ViaRewind, Starlight, qfapi *(fabric library implementation and Quilt library from Quilt)*, Fabrictailor *(to change skins, do /skin)*, Clumps, C2ME.
 
 > Sukiru - they're like a java dev or something, they were useful with answering my very urgent and serious questions.
 
