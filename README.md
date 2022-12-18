@@ -1,11 +1,12 @@
 # Termux-minecraft-server-installer
 #### **!INSTALLATION GUIDE IS IN THE WIKI SECTION OF THIS GITHUB!**
 
+## Current: v1.19.3
+
 This is a simple script (originally designed for Termux) that will automatically install and configure a vanilla-optimized Quilt server for Minecraft Java (and in the future hopefully, Bedrock.)
-This is the most __up-to-date__ script to setup the most optimized MC Server out there, afaik.
 You can add any Fabric or Quilt mod you want.
 
-`I have an example of this running on my own android device; a Modded Survival experience. You can take a peak of its performance by joining; androidmc.tplinkdns.com` !!
+`I have an example of this running on my own android device; a Modded Survival experience. You can take a peak of its performance by joining; androidmc.hopto.org:25565` !!
 
 ----------------------------------------------------------------------
 ## Thanks to these things/people that made it possible !
@@ -23,13 +24,15 @@ You can add any Fabric or Quilt mod you want.
 
 ### ⚠️ This guide assumes you are runnning a supported operating system.  ⚠️
 The steps are in the Wiki section of this github repo inorder to reduce clutter here. Feedback is appriciated, my discord is Theslees#1162 if you need to reach out.
+
+
 Please check if your system is compatible with this script before running it;
 
-### ***Currently supported os; Fedora-based, Debian-based, Arch Linux-based, Alpine-based, Termux.***
+### ***Fedora-based, Debian-based, Arch Linux-based, Alpine-based, Termux.***
 
 # To do
 - Add Windows support
-- Geyser support
+- ~~Geyser support~~ (note; no Floodgate, its incompatible with this script for some reason.)
 - ~~More Distros~~
 - ~~Use functions to make it easier to read ig~~
 - ~~Native Termux Support (remove the need for AnLinux.)~~
