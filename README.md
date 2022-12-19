@@ -3,7 +3,7 @@
 
 ## Current: v1.19.3
 
-This is a simple script (originally designed for Termux) that will automatically install and configure a vanilla-optimized Quilt server for Minecraft Java (and in the future hopefully, Bedrock.)
+This is a simple script (originally designed for Termux,) that will automatically install and configure a vanilla-optimized Quilt server for Minecraft Java and Bedrock (broken).
 You can add any Fabric or Quilt mod you want.
 
 `I have an example of this running on my own android device; a Modded Survival experience. You can take a peak of its performance by joining; androidmc.hopto.org:25565` !!
@@ -16,7 +16,7 @@ You can add any Fabric or Quilt mod you want.
 
 > Quilt Mod Loader Discord - Very cool people and devs helped me find compalibility issues, ty.
 
-> The Mods - Lithium, VMP *(Very Many Players)*, FerriteCore, ViaFabric, ViaBackwards, ViaRewind, Starlight, qfapi *(fabric library implementation and Quilt library from Quilt)*, Fabrictailor *(to change skins, do /skin)*, Clumps, C2ME.
+> The Mods - Lithium, VMP *(Very Many Players)*, Krypton, FerriteCore, ViaFabric, ViaBackwards, ViaRewind, Starlight, qfapi *(fabric lib implementation + standard lib from Quilt)*, Fabrictailor *(to change skins, do /skin)*, Clumps, Geyser, C2ME.
 
 > Sukiru - they're like a java dev or something, they were useful with answering my very urgent and serious questions.
 
