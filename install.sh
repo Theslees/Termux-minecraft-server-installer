@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Welcome to another minecraft server installer! -- Executes with superuser and normal user. finally. https://github.com/Theslees/Termux-minecraft-server-installer
 clear
 printf "Setting up...\n "
 printf "currently running script as $USER...\n "
 
+# Welcome to another minecraft server installer! -- Executes with superuser and normal user. finally. https://github.com/Theslees/Termux-minecraft-server-installer
 # *Define the variables*
 . /etc/os-release
 version="1.19.3"
@@ -129,7 +129,7 @@ elif [ $pkgfnd = 5 ]; then pkgfnd="sudo pacman -Syy jre17-openjdk-headless nano 
 fi
 
 if [ $pkgfail = true ]; then
-  echo -n "FAILED TO INSTALL PACKAGES; Attempting to download Java 17 instead of 18..."
+  echo -n "FAILED TO INSTALL PACKAGES; Attempting to download Java 17 instead...\n "
   $pkgfnd
 else
   echo -n "Success!"
