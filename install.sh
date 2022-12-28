@@ -129,7 +129,7 @@ elif [ $pkgfnd = 5 ]; then pkgfnd="sudo pacman -Syy jre17-openjdk-headless nano 
 fi
 
 if [ $pkgfail = true ]; then
-  echo -n "FAILED TO INSTALL PACKAGES; Attempting to download Java 17 instead...\n "
+  echo -n "FAILED TO INSTALL PACKAGES; Attempting to download Java 17..."
   $pkgfnd
 else
   echo -n "Success!"
@@ -160,7 +160,7 @@ java -jar quilt-installer-latest.jar \
 # Cleanup
 clear
 printf "Done! Cleaning and organizing.. \n "
-cd server && cp -r libraries server.jar quilt-server-launch.jar .. && cd .. && rm -R server LICENSE README.md quilt-installer-latest.jar
+cd server && mv libraries server.jar quilt-server-launch.jar .. && cd .. && rm -R server LICENSE README.md quilt-installer-latest.jar
 }
 
 quilt
