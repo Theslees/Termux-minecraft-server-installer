@@ -1,22 +1,22 @@
 # Termux-minecraft-server-installer
 #### **!INSTALLATION GUIDE IS IN THE WIKI SECTION OF THIS GITHUB!**
 
-## Current: v1.19.3
+## Current: v1.19.4
 
-This is a simple script (originally designed for Termux,) that will automatically install and configure a vanilla-optimized Quilt server for Minecraft Java and Bedrock (broken).
+This is a simple script (originally designed for Termux) that will automatically install and configure a vanilla-optimized Quilt server for Minecraft Java (and in the future hopefully, Bedrock.)
 You can add any Fabric or Quilt mod you want.
 
-`I have an example of this running on my own android device; a Modded Survival experience. You can take a peak of its performance by joining; androidmc.hopto.org:25565` !!
+`I had an example of this running on my own android device; a Modded Survival experience. It's no longer up though and I instead host a MCPi server now. github.com/MCPI-Revival` !!
 
 ----------------------------------------------------------------------
 ## Thanks to these things/people that made it possible !
-> MC v1.19.2 - Synced server package manifest to client, updating the Netty framework
+> MC v1.19.2 - Synced server package manifest to client, updating the Netty framework to a version that makes this code work
 
-> Quilt Mod Loader - Best solution for hosting MC servers imo (That isn't enterprise, proprietary, or designed for specific things.)
+> Quilt Mod Loader - Best solution for hosting MC servers imo (for personal use)
 
-> Quilt Mod Loader Discord - Very cool people and devs helped me find compalibility issues, ty.
+> Quilt Mod Loader Discord - Very cool people and devs helped me find compalibility issues
 
-> The Mods - Lithium, Krypton, FerriteCore, ViaFabric, ViaBackwards, ViaRewind, Starlight, qfapi *(fabric lib implementation + standard lib from Quilt)*, Fabrictailor *(to change skins, do /skin)*, Clumps, Geyser, C2ME.
+> The Mods - Lithium, FerriteCore, ViaFabric, ViaBackwards, ViaRewind, Starlight, qfapi *(fabric library implementation + Quilt library from Quilt)*, Fabrictailor *(to change skins, do /skin)*, Clumps, C2ME, memoryleakfix, smoothchunk.
 
 > Sukiru - they're like a java dev or something, they were useful with answering my very urgent and serious questions.
 
@@ -31,10 +31,10 @@ Please check if your system is compatible with this script before running it;
 ### ***Fedora-based, Debian-based, Arch Linux-based, Alpine-based, Termux.***
 
 # To do
-- Add Windows support
-- ~~Geyser support~~ (note; no Floodgate, its incompatible with this script for some reason.)
+- Add Windows support in a different branch
+- ~~Geyser support~~ removed geyser due to floodgate not working here, and to make this script minimal.
 - ~~More Distros~~
 - ~~Use functions to make it easier to read ig~~
 - ~~Native Termux Support (remove the need for AnLinux.)~~
-
+- In the wiki, make the linux section a single step using a universal command everyone can run to get the script up and going. Or something
 ----------------------------------------------------------------

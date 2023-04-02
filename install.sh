@@ -7,7 +7,7 @@ printf "currently running script as $USER...\n "
 # Welcome to another minecraft server installer! -- Executes with superuser and normal user. finally. https://github.com/Theslees/Termux-minecraft-server-installer
 # *Define the variables*
 . /etc/os-release
-version="1.19.3"
+version="1.19.4"
 # removed installer_version, script doesnt install the quilt server installer locally anymore.
 #bashrc variable removed, not used
 ram=$(free --mega | grep Mem | awk '{ print $7 }')
@@ -80,6 +80,7 @@ fi
 if [ $pkgfail = true ]; then
   echo -n "\nFAILED TO INSTALL PACKAGES; Attempting to download Java 17 instead...\n "
   $pkgfnd
+  return 1
 else
   echo -n "Success!"
   return 0
@@ -162,7 +163,6 @@ clear
 printf "Done! Cleaning and organizing.. \n "
 cd server && mv libraries server.jar quilt-server-launch.jar .. && cd .. && rm -R server LICENSE README.md quilt-installer-latest.jar
 }
-
 quilt
 
 mc() {
