@@ -16,7 +16,7 @@ You can add any Fabric or Quilt mod you want.
 
 > Quilt Mod Loader Discord - Very cool people and devs helped me find compalibility issues
 
-> The Mods - Lithium, FerriteCore, ViaFabric, ViaBackwards, ViaRewind, Starlight, qfapi *(fabric library implementation + Quilt library from Quilt)*, Fabrictailor *(to change skins, do /skin)*, Clumps, C2ME, memoryleakfix, smoothchunk.
+> The Mods - Lithium, FerriteCore, ViaFabric, ViaBackwards, ViaRewind, Starlight, qfapi *(fabric library implementation + Quilt library from Quilt)*, Fabrictailor *(to change skins, do /skin)*, Clumps, C2ME, memoryleakfix, smoothchunk, LazyDFU, smoothboot, VMP, recipecache, quiltgofast, getittogetherdrops, fabric carpet, dim-thread, carpet extras, BadPackets, alternate current, advdebug.
 
 > Sukiru - they're like a java dev or something, they were useful with answering my very urgent and serious questions.
 
