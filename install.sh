@@ -7,7 +7,7 @@ printf "currently running script as $USER...\n "
 # Welcome to another minecraft server installer! -- Executes with superuser and normal user. finally. https://github.com/Theslees/Termux-minecraft-server-installer
 # *Define the variables*
 . /etc/os-release
-version="1.19.4"
+version="1.20"
 # removed installer_version, script doesnt install the quilt server installer locally anymore.
 #bashrc variable removed, not used
 ram=$(free --mega | grep Mem | awk '{ print $7 }')
@@ -154,14 +154,14 @@ fi
 quilt() {
 clear
 printf "\nDownloading MC Java server $version.. Powered by Quilt! Please Wait.. \n "
-wget https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/latest/quilt-installer-latest.jar
-java -jar quilt-installer-latest.jar \
+wget https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.5.1/quilt-installer-0.5.1.jar
+java -jar quilt-installer-0.5.1.jar \
     install server $version \
     --download-server
 # Cleanup
 clear
 printf "Done! Cleaning and organizing.. \n "
-cd server && mv libraries server.jar quilt-server-launch.jar .. && cd .. && rm -R server LICENSE README.md quilt-installer-latest.jar
+cd server && mv libraries server.jar quilt-server-launch.jar .. && cd .. && rm -R server LICENSE README.md quilt-installer-0.5.1.jar
 }
 quilt
 
