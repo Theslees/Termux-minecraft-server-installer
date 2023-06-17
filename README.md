@@ -1,7 +1,7 @@
 # Termux-minecraft-server-installer
 #### **!INSTALLATION GUIDE IS IN THE WIKI SECTION OF THIS GITHUB!**
 
-## Current: v1.20
+## Current: v1.20.1
 
 This is a simple script (originally designed for Termux) that will automatically install and configure a vanilla-optimized Quilt server for Minecraft Java (and in the future hopefully, Bedrock.)
 You can add any Fabric or Quilt mod you want.
