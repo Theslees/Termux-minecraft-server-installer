@@ -7,7 +7,7 @@ printf "currently running script as $USER...\n "
 # Welcome to another minecraft server installer! -- Executes with superuser and normal user. finally. https://github.com/Theslees/Termux-minecraft-server-installer
 # *Define the variables*
 . /etc/os-release
-version="1.20"
+version="1.20.1"
 # removed installer_version, script doesnt install the quilt server installer locally anymore.
 #bashrc variable removed, not used
 ram=$(free --mega | grep Mem | awk '{ print $7 }')
