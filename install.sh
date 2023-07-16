@@ -194,7 +194,7 @@ else
     if [ $termux = 0 ]; then 
       mc="/data/data/com.termux/files/usr/bin"
     else 
-      continue
+      return 0
     fi
     option="${option}M"
     touch $mc && cat /dev/null > $mc && echo "#!/bin/bash
@@ -216,7 +216,7 @@ else
     if [ $termux = 0 ]; then 
       mc_root="/data/data/com.termux/files/usr/bin"
     else 
-      continue
+      return 0
     fi
     option="${option}M"
     touch $mc_root && cat /dev/null > $mc_root && echo "#!/bin/bash
