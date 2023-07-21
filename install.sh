@@ -192,7 +192,9 @@ if [[ ! $option =~ ^[0-9]+$ ]]; then
     break 1
 else
     if [ $termux = 0 ]; then 
-      mc="/data/data/com.termux/files/usr/bin"
+# The mc file for termux will still be at root, so theres currently no support for Termux non-root enviroments. I heard that it shouldn't matter anyway though, but I dont know if people are running users (non-root) in their termux enviroments.
+# Creates the mc bin at root still despite this function being for local installs.
+      mc="/data/data/com.termux/files/usr/bin/mc"
     else 
       return 0
     fi
@@ -214,7 +216,7 @@ if [[ ! $option =~ ^[0-9]+$ ]]; then
     break 1
 else
     if [ $termux = 0 ]; then 
-      mc_root="/data/data/com.termux/files/usr/bin"
+      mc_root="/data/data/com.termux/files/usr/bin/mc"
     else 
       return 0
     fi
