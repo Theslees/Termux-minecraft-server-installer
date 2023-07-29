@@ -32,13 +32,20 @@ termux=/data/data/com.termux/files/usr
 # uses $termux to check for a directory normally found in Termux. Detects termux enviroment
 if [ -d $termux ]; then
   termux=0
-  echo -n "Detected Termux enviroment! continuing setup.."
+  echo -n "Detected Termux enviroment! continuing setup..\n"
+  sleep 0.4
+  pkg update
+  if [ ! $(command -v tsu) ];
+  	then
+  		echo "Tsu is not installed... installing tsu.."
+  		pkg install tsu
+  fi
     if [ $(whoami) != "root" ]; then
     echo -n "Installing dependancies.."
-    sudo pkg update && sudo pkg install openjdk-17 grep procps wget
+    sudo pkg install openjdk-17 grep procps wget
   else
     echo -n "Installing dependancies.."
-    pkg update && pkg install openjdk-17 grep procps wget
+    pkg install openjdk-17 grep procps wget
   fi
 else
   termux=1
