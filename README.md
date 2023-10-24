@@ -26,18 +26,8 @@ You can add any Fabric or Quilt mod you want.
 The steps are in the Wiki section of this github repo inorder to reduce clutter here. Feedback is appriciated, my name and discord is Theslees#1162 if you need to reach out. (or any social really, I'm Theslees everywhere)
 
 
-Please check if your system is compatible with this script before running it;
+Please confirm if your system is compatible with this script before running it;
 
-### ***Fedora-based, Debian-based, Arch Linux-based, Alpine-based, Termux.***
+***Fedora-based, Debian-based, Arch Linux-based, Alpine-based, and Termux.***
 
-
-# To do
-
-- Add Windows support in a different branch
-- ~~Geyser support~~ removed geyser due to floodgate not working here, and to make this script minimal.
-- ~~More Distros~~
-- ~~Use functions to make it easier to read ig~~
-- ~~Native Termux Support (remove the need for AnLinux.)~~
-- In the wiki, make the linux section a single step using a universal command everyone can run to get the script up and going, or something. 
-- Add options to install Bedrock or Java, though this is low priority. Bedrock deserves love too 
 ----------------------------------------------------------------
